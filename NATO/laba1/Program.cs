@@ -22,17 +22,19 @@
             //    Console.Write("Enter the c variable: ");
             //} while (!double.TryParse(Console.ReadLine(), out c));
 
-            Console.WriteLine("R = " + R(x, b, ф));
+            Console.WriteLine("R = " + R(x, ref b, ф));
 
-            Console.WriteLine("s1 = " + s1(a, R(x, b, ф)));
+            Console.WriteLine("s1 = " + s1(a, R(x, ref b, ф)));
+            Console.WriteLine(b);
 
-            Console.WriteLine("b = " + B(a, s1(a, R(x, b, ф)), C, x, R(x, b, ф), dk));
+            Console.WriteLine("b = " + B(a, s1(a, R(x, ref b, ф)), C, x, R(x, ref b, ф), dk));
 
             Console.ReadLine();
 
         }
-        static double R(double x, double b, double ф)
+        static double R(double x,ref double b, double ф)
         {
+            b = 4;
             return x * b + ф;
         }
 
